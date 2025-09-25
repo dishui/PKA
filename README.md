@@ -2,7 +2,7 @@ This is a Pet Project for playing with ChromaDB and LangChain. This project is b
 
 The first MVP is a simple Personal Knowledge Assistant. 
 
-Even though it's a pet project, I'm going to try to make it close to production ready as possible.
+Even though it's a pet project, I'm going to try to make it with the best practices and clean architecture.
 
 ## **🎉 What To Expect**
 
@@ -12,7 +12,7 @@ Even though it's a pet project, I'm going to try to make it close to production 
 - **Cost-effective design**: Open-source components, avoiding API fees
 - **RAG implementation**: Smart use of pgvector for semantic search over personal notes
 
-### **Production-Quality Architecture:**
+### **Architecture:**
 
 1. **Docker-First Development** - Everything containerized
 2. **Clean Code Architecture** - Proper separation of concerns
