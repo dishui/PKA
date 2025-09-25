@@ -18,14 +18,19 @@ class Settings(BaseSettings):
     """
     Application settings class with environment variable support.
     """
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    # Pydantic v2 settings configuration
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"  # Allow extra environment variables
+    )
 
     # Base settings
-    PROJECT_NAME: str = Field(..., description="The name of the project")
-    PROJECT_DESCRIPTION: str = Field(..., description="The description of the project")
-    PROJECT_VERSION: str = Field(..., description="The version of the project")
-    DEBUG: bool = Field(..., description="Whether the application is in debug mode")
-    ENVIRONMENT: str = Field(..., description="The environment of the application")
+    PROJECT_NAME: str = "Personal Knowledge Assistant"
+    VERSION: str = "1.0.0"
+    DESCRIPTION: str = "A practical Personal Knowledge Assistant"
+
 
     # Database settings
     DATABASE_URL: str = Field(..., description="The database URL")
@@ -52,19 +57,40 @@ class DevelopmentSettings(Settings):
     """
     Development settings class.
     """
-    pass
+    DEBUG: bool = True
+    LOG_LEVEL: str = "DEBUG"
+    
 
 class ProductionSettings(Settings):
     """
     Production settings class.
     """
-    pass
+    DEBUG: bool = False
+    LOG_LEVEL: str = "INFO"
+
+    # Stricter security settings, 15 minutes
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
+
 
 class TestSettings(Settings):
     """
     Test settings class.
     """
-    pass
+    DEBUG: bool = True
+    LOG_LEVEL: str = "DEBUG"
+
+    # Use test database
+    DATABASE_URL: str = "postgresql+asyncpg://test:test@localhost:5432/test_pka"
+    REDIS_URL: str = "redis://localhost:6379/1"  # Different Redis DB for tests
+
+    # Faster token expiration for testing
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 1
+
+    # Smaller limits for testing
+    MAX_FILE_SIZE_MB: int = 1
+    SEARCH_RESULTS_LIMIT: int = 5
+
+
 
 def get_settings() -> "Settings":
         """
