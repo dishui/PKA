@@ -48,6 +48,23 @@ class Settings(BaseSettings):
         return [origin.strip() for origin in self.BACKEND_CORS_ORIGINS.split(",") if origin.strip()]
 
 
+class DevelopmentSettings(Settings):
+    """
+    Development settings class.
+    """
+    pass
+
+class ProductionSettings(Settings):
+    """
+    Production settings class.
+    """
+    pass
+
+class TestSettings(Settings):
+    """
+    Test settings class.
+    """
+    pass
 
 def get_settings() -> "Settings":
         """
