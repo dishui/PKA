@@ -1,4 +1,5 @@
-This is a Pet Project for playing with ChromaDB and LangChain.
+This is a Pet Project for playing with ChromaDB and LangChain. This project is build with FastAPI and React, and AI technologies like LangGraph, Llama 3.1, and pgvector.
+
 The first MVP is a simple Personal Knowledge Assistant. 
 
 Even though it's a pet project, I'm going to try to make it close to production ready as possible.
@@ -21,3 +22,20 @@ Even though it's a pet project, I'm going to try to make it close to production 
 6. **Health Checks** - Monitoring and observability
 7. **Security Best Practices** - Non-root containers, CORS, validation
 
+
+## 🏗️ Architecture Overview
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Backend       │    │   AI Services   │
+│   React/TS      │◄──►│   FastAPI       │◄──►│   Ollama/Chroma │
+│   + Zustand     │    │   + SQLAlchemy  │    │   + Embeddings  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                        │                        │
+         ▼                        ▼                        ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React Query   │    │   PostgreSQL    │    │   Vector Store  │
+│   + React Hook  │    │   + Redis       │    │   (ChromaDB)    │
+│   Form          │    │   + Alembic     │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
