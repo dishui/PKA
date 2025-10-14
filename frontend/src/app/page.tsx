@@ -1,6 +1,7 @@
+'use client'
 import { useState } from 'react'
-import ChatWidget from './components/ChatWidget'
-import ChatWidgetStreaming from './components/ChatWidgetStreaming'
+import ChatWidget from '@/components/layouts/chat-widget'
+import ChatWidgetStreaming from '@/components/layouts/chat-widget-streaming'
 
 function App() {
   const [widgetType, setWidgetType] = useState<'standard' | 'streaming'>('streaming')

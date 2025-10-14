@@ -1,99 +1,28 @@
 {
-    "name": "personal-knowledge-assistant-frontend",
-    "version": "1.0.0",
-    "description": "Frontend for Personal Knowledge Assistant",
-    "type": "module",
-    "scripts": {
-      "dev": "vite --host 0.0.0.0",
-      "build": "tsc && vite build",
-      "preview": "vite preview",
-      "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-      "lint:fix": "eslint . --ext ts,tsx --fix",
-      "type-check": "tsc --noEmit",
-      "test": "vitest",
-      "test:coverage": "vitest run --coverage",
-      "test:ui": "vitest --ui",
-      "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
-      "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
-    },
-    "dependencies": {
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0",
-      "react-router-dom": "^6.20.1",
-      "@tanstack/react-query": "^5.8.4",
-      "zustand": "^4.4.7",
-      "react-hook-form": "^7.48.2",
-      "@hookform/resolvers": "^3.3.2",
-      "zod": "^3.22.4",
-      "axios": "^1.6.2",
-      "socket.io-client": "^4.7.4",
-      "lucide-react": "^0.294.0",
-      "@headlessui/react": "^1.7.17",
-      "clsx": "^2.0.0",
-      "react-hot-toast": "^2.4.1",
-      "react-dropzone": "^14.2.3",
-      "framer-motion": "^10.16.5",
-      "date-fns": "^2.30.0",
-      "react-markdown": "^9.0.1",
-      "react-syntax-highlighter": "^15.5.0",
-      "uuid": "^9.0.1"
-    },
-    "devDependencies": {
-      "@types/react": "^18.2.37",
-      "@types/react-dom": "^18.2.15",
-      "@types/uuid": "^9.0.7",
-      "@types/react-syntax-highlighter": "^15.5.11",
-      "@typescript-eslint/eslint-plugin": "^6.10.0",
-      "@typescript-eslint/parser": "^6.10.0",
-      "@vitejs/plugin-react": "^4.1.1",
-      "vite": "^5.0.0",
-      "typescript": "^5.2.2",
-      "tailwindcss": "^3.3.5",
-      "autoprefixer": "^10.4.16",
-      "postcss": "^8.4.32",
-      "@tailwindcss/forms": "^0.5.7",
-      "@tailwindcss/typography": "^0.5.10",
-      "eslint": "^8.53.0",
-      "eslint-plugin-react": "^7.33.2",
-      "eslint-plugin-react-hooks": "^4.6.0",
-      "eslint-plugin-react-refresh": "^0.4.4",
-      "prettier": "^3.1.0",
-      "prettier-plugin-tailwindcss": "^0.5.7",
-      "vitest": "^1.0.4",
-      "@vitest/ui": "^1.0.4",
-      "@vitest/coverage-v8": "^1.0.4",
-      "@testing-library/react": "^14.1.2",
-      "@testing-library/jest-dom": "^6.1.5",
-      "@testing-library/user-event": "^14.5.1",
-      "jsdom": "^23.0.1",
-      "msw": "^2.0.8"
-    },
-    "engines": {
-      "node": ">=18.0.0",
-      "npm": ">=9.0.0"
-    },
-    "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
-      ],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
-    },
-    "keywords": [
-      "react",
-      "typescript",
-      "vite",
-      "tailwindcss",
-      "personal-knowledge-assistant",
-      "ai",
-      "chatbot",
-      "semantic-search"
-    ],
-    "author": "Josephine Liang",
-    "license": "MIT"
-  } 
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "lucide-react": "^0.545.0",
+    "next": "15.5.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
