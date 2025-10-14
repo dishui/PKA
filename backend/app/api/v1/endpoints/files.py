@@ -16,14 +16,14 @@ router = APIRouter()
 @router.get("/")
 async def list_files():
     """List uploaded files."""
-     return {
+    return {
         "files": [],
         "message": "File endpoints coming soon"
     }
 
 @router.post("/upload")
 async def upload_file():
-    """Upload a file to the file system."""
+    """Upload a file for processing."""
     return {
         "message": "File upload endpoint coming soon"
     } 
