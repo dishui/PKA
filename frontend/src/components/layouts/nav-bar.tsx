@@ -135,12 +135,12 @@ export function NavBar() {
 
         {/* Login Button */}
         <div className="ml-auto">
-          <Link href="/auth/login">
+          <Link href="/login">
                 <Button variant="secondary" size="sm">  
                   Sign in
                  </Button>
           </Link>
-          <Link href="/auth/register">
+          <Link href="/register">
             <Button variant="primary" size="sm">  
                Sign up
             </Button>
