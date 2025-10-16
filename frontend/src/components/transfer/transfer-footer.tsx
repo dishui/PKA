@@ -6,7 +6,7 @@ export default function TransferFooter() {
     <div className="mt-4 flex flex-col justify-between items-center gap-4">
       <OptionsBar className="w-full py-4" />
      
-      <Button className="w-full py-4 bg-blue-500 text-white hover:bg-blue-600" data-testid="uploaderForm-transfer-button">
+      <Button className="w-full py-4 bg-teal-500 text-white hover:bg-teal-700" data-testid="uploaderForm-transfer-button">
         Transfer
       </Button>
     </div>

@@ -16,7 +16,7 @@ const WidgetSelectorSection = ({ onWidgetTypeChange }: WidgetSelectorSectionProp
         onClick={() => setWidgetType('standard')}
         className={`px-6 py-3 rounded-lg font-medium transition-colors ${
           widgetType === 'standard'
-            ? 'bg-blue-500 text-white'
+            ? 'bg-teal-500 text-white'
             : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
         }`}
       >
@@ -26,7 +26,7 @@ const WidgetSelectorSection = ({ onWidgetTypeChange }: WidgetSelectorSectionProp
         onClick={() => setWidgetType('streaming')}
         className={`px-6 py-3 rounded-lg font-medium transition-colors ${
           widgetType === 'streaming'
-            ? 'bg-blue-500 text-white'
+            ? 'bg-teal-500 text-white'
             : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
         }`}
       >

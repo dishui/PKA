@@ -84,7 +84,7 @@ export default function RegisterForm({ onSuccess }: RegisterFormProps) {
       <div className="bg-white shadow-lg rounded-lg p-8">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Create Account</h2>
-          <p className="text-gray-600 mt-2">Join our Web3 AI Agent Platform</p>
+          <p className="text-gray-600 mt-2">Join the PKA to start using your own document to power your own chatbot</p>
         </div>
 
         {error && (
@@ -162,26 +162,10 @@ export default function RegisterForm({ onSuccess }: RegisterFormProps) {
             />
           </div>
 
-          <div>
-            <label htmlFor="walletAddress" className="block text-sm font-medium text-gray-700 mb-1">
-              Wallet Address (Optional)
-            </label>
-            <input
-              type="text"
-              id="walletAddress"
-              name="walletAddress"
-              value={formData.walletAddress}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="0x... (optional)"
-              disabled={isLoading}
-            />
-          </div>
-
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? 'Creating Account...' : 'Create Account'}
           </button>
@@ -192,7 +176,7 @@ export default function RegisterForm({ onSuccess }: RegisterFormProps) {
             Already have an account?{' '}
             <button
               onClick={() => router.push('/auth/login')}
-              className="text-blue-600 hover:text-blue-500 font-medium"
+              className="text-teal-600 hover:text-teal-500 font-medium"
             >
               Sign in
             </button>

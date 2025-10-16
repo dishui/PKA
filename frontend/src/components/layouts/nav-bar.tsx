@@ -20,7 +20,7 @@ export function NavBar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
             <Logo 
                 width={45} 
                 height={40} 
@@ -30,7 +30,7 @@ export function NavBar() {
                 color="transparent"
               />
             <span className="font-bold text-xl text-foreground">PKA</span>
-        </Link>
+        </div>
 
         {/* Navigation Menu */}
         <NavigationMenu className="ml-6">
@@ -135,12 +135,12 @@ export function NavBar() {
 
         {/* Login Button */}
         <div className="ml-auto">
-          <Link href="/login">
+          <Link href="/auth/login">
                 <Button variant="secondary" size="sm">  
                   Sign in
                  </Button>
           </Link>
-          <Link href="/register">
+          <Link href="/auth/register">
             <Button variant="primary" size="sm">  
                Sign up
             </Button>

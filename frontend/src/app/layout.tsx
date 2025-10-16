@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-//import Header from "@/components/layout/header";
-//import Footer from "@/components/layout/footer";
+import Header from '@/components/layouts/header'
+import Footer from '@/components/layouts/footer'
+import { AuthProvider } from '@/contexts/AuthContext'
 import "./globals.css";
 
 const roboto = Roboto({
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr">
       <body className={`${roboto.variable} antialiased`}>
-        <div className="Toastify"></div>
-        {/*<Header />*/}
-        {children}
-        {modals} 
-        {/*<Footer />*/}
+        <AuthProvider>
+          <div className="Toastify" />
+          <Header />
+            {children}
+            {modals} 
+          <Footer />
+          </AuthProvider>
       </body>
     </html>
   );
