@@ -8,7 +8,7 @@ interface RegisterFormProps {
   onSuccess?: () => void;
 }
 
-export default function RegisterForm({ onSuccess }: RegisterFormProps) {
+ export default function RegisterForm({ onSuccess }: RegisterFormProps) {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
