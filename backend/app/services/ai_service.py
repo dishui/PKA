@@ -1,7 +1,7 @@
 """
 AI Service for embeddings, vector search, and LLM integration.
 
-This module:
+This module demonstrates:
 - Professional AI service architecture
 - ChromaDB integration for vector search
 - Ollama integration for local LLM
@@ -30,7 +30,7 @@ class AIService:
     """
     AI Service for handling embeddings, vector search, and LLM operations.
     
-    This class handles:
+    This class demonstrates:
     - Singleton pattern for resource management
     - Async operations for performance
     - Proper error handling
