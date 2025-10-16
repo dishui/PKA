@@ -29,6 +29,26 @@ class AppException(Exception):
         self.details = details or {}
         super().__init__(self.message)
 
+class AuthenticationError(CustomException):
+    """Authentication related errors"""
+    
+    def __init__(self, detail: str = "Authentication failed"):
+        super().__init__(
+            detail=detail,
+            status_code=401,
+            error_code="AUTHENTICATION_ERROR"
+        )
+
+
+class AuthorizationError(CustomException):
+    """Authorization related errors"""
+    
+    def __init__(self, detail: str = "Access denied"):
+        super().__init__(
+            detail=detail,
+            status_code=403,
+            error_code="AUTHORIZATION_ERROR"
+        )
 
 class ValidationError(AppException):
     """Raised when data validation fails."""
@@ -134,3 +154,14 @@ class EmbeddingError(AppException):
     def __init__(self, message: str, model: str = "unknown"):
         details = {"model": model}
         super().__init__(f"Embedding error with model {model}: {message}", status_code=500, details=details) 
+
+class ExternalServiceError(CustomException):
+    """External service errors"""
+    
+    def __init__(self, detail: str = "External service unavailable", service: Optional[str] = None):
+        super().__init__(
+            detail=detail,
+            status_code=503,
+            error_code="EXTERNAL_SERVICE_ERROR",
+            extra_data={"service": service} if service else None
+        ) 

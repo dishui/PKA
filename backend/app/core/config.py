@@ -213,11 +213,26 @@ class Settings(BaseSettings):
         default="",
         description="The LangGraph API key"
     )
+
+    # Authentication
+    SECRET_KEY: str = Field(..., description="Secret key for JWT token generation")
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
+    # CORS
+    CORS_ORIGINS: str = "http://localhost:3000,https://your-app.vercel.app"
+    ALLOWED_HOSTS: str = "localhost,127.0.0.1,your-backend.railway.app"
+
     @property
     def cors_origins(self) -> List[str]:
         """Get CORS origins as a list."""
         return [origin.strip() for origin in self.BACKEND_CORS_ORIGINS.split(",") if origin.strip()]
+
+    @property
+    def allowed_hosts_list(self) -> List[str]:
+        """Convert ALLOWED_HOSTS string to list"""
+        return [host.strip() for host in self.ALLOWED_HOSTS.split(",") if host.strip()]
 
 
 class DevelopmentSettings(Settings):
