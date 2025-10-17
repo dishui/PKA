@@ -1,14 +1,13 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface User {
   id: string;
-  email: string;
-  name: string;
-  walletAddress?: string;
-  createdAt: string;
+  email?: string;
+  name?: string;
+  createdAt?: string;
 }
 
 interface AuthContextType {
