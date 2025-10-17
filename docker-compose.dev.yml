@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   # PostgreSQL Database
   postgres:
@@ -12,7 +10,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "0.0.0.0:5432:5432"
     networks:
       - pka_network
     healthcheck:
@@ -29,7 +27,7 @@ services:
     volumes:
       - redis_data:/data
     ports:
-      - "6379:6379"
+      - "0.0.0.0:6379:6379"
     networks:
       - pka_network
     healthcheck:
@@ -55,11 +53,12 @@ services:
       # AI Service (optional - will work without Ollama)
       - OLLAMA_BASE_URL=http://host.docker.internal:11434
       - EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - BACKEND_CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173
     volumes:
       - ./backend:/app
       - chroma_data:/app/chroma_db
     ports:
-      - "8000:8000"
+      - "0.0.0.0:8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -68,28 +67,11 @@ services:
     networks:
       - pka_network
     restart: unless-stopped
-
-  # React Frontend
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      target: development
-    container_name: pka_frontend
-    environment:
-      - VITE_API_URL=http://localhost:8000/api/v1
-      - VITE_WS_URL=ws://localhost:8000/ws
-      - VITE_APP_NAME=Personal Knowledge Assistant
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - pka_network
-    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 volumes:
   postgres_data:
@@ -101,4 +83,4 @@ volumes:
 
 networks:
   pka_network:
-    driver: bridge 
+    driver: bridge

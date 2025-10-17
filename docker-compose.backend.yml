@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   # PostgreSQL Database
   postgres:
@@ -12,7 +10,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "0.0.0.0:5432:5432"
     networks:
       - pka_network
     healthcheck:
@@ -29,7 +27,7 @@ services:
     volumes:
       - redis_data:/data
     ports:
-      - "6379:6379"
+      - "0.0.0.0:6379:6379"
     networks:
       - pka_network
     healthcheck:
@@ -61,7 +59,7 @@ services:
       - ./backend:/app
       - chroma_data:/app/chroma_db
     ports:
-      - "8000:8000"
+      - "0.0.0.0:8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -70,6 +68,11 @@ services:
     networks:
       - pka_network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 volumes:
   postgres_data:
@@ -81,4 +84,4 @@ volumes:
 
 networks:
   pka_network:
-    driver: bridge 
+    driver: bridge
