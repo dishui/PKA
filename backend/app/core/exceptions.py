@@ -28,6 +28,22 @@ class AppException(Exception):
         self.status_code = status_code
         self.details = details or {}
         super().__init__(self.message)
+        
+class CustomException(Exception):
+    """Base custom exception class"""
+    
+    def __init__(
+        self,
+        detail: str,
+        status_code: int = 500,
+        error_code: Optional[str] = None,
+        extra_data: Optional[Any] = None
+    ):
+        self.detail = detail
+        self.status_code = status_code
+        self.error_code = error_code or "GENERIC_ERROR"
+        self.extra_data = extra_data
+        super().__init__(detail)
 
 class AuthenticationError(CustomException):
     """Authentication related errors"""

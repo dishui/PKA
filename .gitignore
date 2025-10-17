@@ -9,6 +9,10 @@ backend/venv
 backend/.env
 backend/__pycache__/
 backend/*.pyc
+backend/.cache
 
 # irrelevant files
 reference/
+
+# for development only
+backup.sql
