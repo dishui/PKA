@@ -72,7 +72,7 @@ export function NavBar() {
                       <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-purple-600 to-blue-600 p-6 no-underline outline-none focus:shadow-md"
                         href="/features"
-                      >
+                        legacyBehavior>
                         <div className="mb-2 mt-4 text-lg font-medium text-white">
                           Features Overview
                         </div>
@@ -89,7 +89,7 @@ export function NavBar() {
                           'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                         )}
                         href="/features/chatbot"
-                      >
+                        legacyBehavior>
                         <div className="text-sm font-medium leading-none">Chatbot</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                           Build intelligent, conversational AI for customer support.
@@ -104,7 +104,7 @@ export function NavBar() {
                           'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                         )}
                         href="/features/analytics"
-                      >
+                        legacyBehavior>
                         <div className="text-sm font-medium leading-none">Analytics</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                           Track chatbot performance and user engagement.
@@ -119,7 +119,7 @@ export function NavBar() {
                           'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                         )}
                         href="/features/integrations"
-                      >
+                        legacyBehavior>
                         <div className="text-sm font-medium leading-none">Integrations</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                           Connect Adbot with your favorite tools.
@@ -135,12 +135,12 @@ export function NavBar() {
 
         {/* Login Button */}
         <div className="ml-auto">
-          <Link href="/login">
+          <Link href="/login" legacyBehavior>
                 <Button variant="secondary" size="sm">  
                   Sign in
                  </Button>
           </Link>
-          <Link href="/register">
+          <Link href="/register" legacyBehavior>
             <Button variant="primary" size="sm">  
                Sign up
             </Button>
